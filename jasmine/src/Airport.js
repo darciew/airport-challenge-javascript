@@ -14,4 +14,5 @@ Airport.prototype.clearForLanding = function (plane) {
 
 Airport.prototype.clearForTakeoff = function (plane) {
   this._groundedPlanes.pop(plane);
+  return 'Plane has taken off';
 };
