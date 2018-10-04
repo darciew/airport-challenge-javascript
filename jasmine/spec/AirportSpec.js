@@ -40,4 +40,18 @@ describe('Airport', function() {
 
   });
 
+  describe('Weather is stormy', function() {
+
+    it('prevents landing if weather is stormy', function() {
+      spyOn(airport, 'weatherIsStormy').and.returnValue(true);
+      expect(function(){ airport.clearForLanding(plane); }).toThrowError("Unable to land: bad weather")
+    });
+
+    it('prevents takeoff if weather is stormy', function() {
+      spyOn(airport, 'weatherIsStormy').and.returnValue(true);
+      expect(function(){ airport.clearForTakeoff(plane); }).toThrowError("Unable to takeoff: bad weather")
+    });
+
+  });
+
 });
